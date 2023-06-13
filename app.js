@@ -7,17 +7,9 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
 /**
- * ChatGPT
- */
-const ChatGPTClass = require("./chatgpt.class");
-const chatGPT = new ChatGPTClass();
-
-/**
  * Flows
  */
 const flowPrincipal = require("./flows/flowPrincipal");
-const { flowHelp } = require("./flows/flowHelp");
-const flowDocente = require("./flows/flowDocente");
 
 /**
  * Funcion principal
@@ -27,9 +19,7 @@ const main = async () => {
     const adapterDB = new MockAdapter();
 
     const adapterFlow = createFlow([
-        flowPrincipal, 
-        flowHelp(chatGPT),
-        flowDocente
+        flowPrincipal
     ]);
 
     const adapterProvider = createProvider(BaileysProvider)

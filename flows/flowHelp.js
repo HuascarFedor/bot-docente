@@ -11,7 +11,7 @@ module.exports = {
       sensitive: true,
     })
     .addAnswer(
-      `¡Estoy listo!, ¿Qué pregunta tienes para mí?`,
+      '¡Estoy listo!, ¿Qué pregunta tienes para mí?',
       { capture: true },
       async (ctx, {  endFlow, fallBack, flowDynamic }) => { 
         if(!ctx.body.toLowerCase().includes('salir')){
