@@ -23,7 +23,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAction( async(ctx, { endFlow, flowDynamic }) => {
     const estudiante = await getEstudiante(ctx.from);
     if(!estudiante.data.length){
-      return endFlow("Actualmente el número de tu celular no está registrado, solicita el registro para tener acceso al bot.");
+      return endFlow("Actualmente tu celular no está registrado, solicita tu registro al docente.");
     }
     else{
       nombre = estudiante.data[0].attributes["nombre"];
@@ -33,8 +33,8 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer(
         [
           'Elije una de las opciones:', 
-          '*(1)* Pregunta sobre alguna temática de clases.', 
-          '*(2)* Si quieres hablar directamente conmigo.', 
+          '*(1)* Pregunta a la I.A. sobre alguna temática.', 
+          '*(2)* Si quieres hablar directamente con el docente.', 
           '¡Responde escribiendo el número de la opción elegida!'
         ],
         { capture: true },
